@@ -1,4 +1,4 @@
-var video = document.querySelector("#videoElement");
+var videoElement = document.querySelector("#videoElement");
 
 const getStream = () => {
     navigator.mediaDevices.getUserMedia({ 
@@ -15,9 +15,9 @@ const getStream = () => {
         },
     })
     .then(function (stream) {
-        video.srcObject = stream;
-        video.onloadedmetadata = (e) => {
-            video.play();
+        videoElement.srcObject = stream;
+        videoElement.onloadedmetadata = (e) => {
+            videoElement.play();
       };
     })
     .catch(function (err) {
