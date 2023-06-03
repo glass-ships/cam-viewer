@@ -36,7 +36,7 @@ if (navigator.mediaDevices.getUserMedia) {
 /** If tab is inactive, pop out video player */
 document.addEventListener("visibilitychange", (event) => {
     if (document.visibilityState == "visible") {
-        videoElement.exitPictureInPicture();
+        document.exitPictureInPicture();
     } else {
         videoElement.requestPictureInPicture();
     };
