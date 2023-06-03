@@ -1,5 +1,6 @@
 var videoElement = document.querySelector("#videoElement");
 
+/** Capture webcam and microphone and stream to video element */
 const getStream = () => {
     navigator.mediaDevices.getUserMedia({ 
         audio: { 
@@ -25,6 +26,18 @@ const getStream = () => {
     });
 };
 
+/** Check if browser supports getUserMedia */
 if (navigator.mediaDevices.getUserMedia) {
     getStream();
+} else {
+    console.log("getUserMedia not supported");
 };
+
+/** If tab is inactive, pop out video player */
+document.addEventListener("visibilitychange", (event) => {
+    if (document.visibilityState == "visible") {
+        videoElement.exitPictureInPicture();
+    } else {
+        videoElement.requestPictureInPicture();
+    };
+  });
