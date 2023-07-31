@@ -4,5 +4,8 @@
 
 A basic webpage used to playback audio and video input from a USB webcam or capture card
 
+
+## Contributing 
+
 Feel free to suggest any fixes/changes/additions, or just make a PR! 
 
