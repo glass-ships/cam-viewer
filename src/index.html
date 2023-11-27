@@ -9,41 +9,30 @@
 <html>
 
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   <title>Webcam Viewer</title>
-  
-  <style>
-  #container {
-      /* Centered horizontally and vertically, filling the page at any size/resolution */
-      position: absolute;
-      width: 100%;
-      height: 100%;
-
-      /* This is the key */
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      
-      /* To see what's going on, uncomment the following line */
-      /* border: 1px solid red; */
-  }
-
-  #videoElement {
-      width: 100%;
-      height: 100%; 
-      background-color: #000000;
-  }
-  </style>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600&display=swap" rel="stylesheet">
 </head>
 
-
-<body> 
-  <div id="container">
-    <video controls autoplay="true" id="videoElement"></video>
+<body>
+  
+  <div id="main">
+    <div id="selectSources">
+      <label for="audioSource">Audio source: </label>
+      <select id="audioSource"></select>
+      <label for="videoSource">Video source: </label>
+      <select id="videoSource"></select>
+    </div>
+    <div>
+      <video controls autoplay="true" id="videoElement"></video>
+    </div>
   </div>
 
   <script src="camviewer.js"></script>
-</body>
 
+</body>
 
 </html>
