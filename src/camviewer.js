@@ -1,4 +1,6 @@
-'use strict';
+// 'use strict';
+// webView.getSettings().setMediaPlaybackRequiresUserGesture(false);
+
 
 var videoElement = document.querySelector("#videoElement");
 var audioSelect = document.querySelector('select#audioSource');
@@ -9,13 +11,10 @@ videoSelect.onchange = getStream;
 
 /** Check if browser supports getUserMedia */
 if (navigator.mediaDevices.getUserMedia) {
-  getStream();
+    getStream().then(getDevices).then(gotDevices);
 } else {
   console.log("getUserMedia not supported");
 };
-
-// getStream().then(getDevices).then(gotDevices);
-getDevices().then(gotDevices);
 
 /** Get list of available devices */
 function getDevices() {
@@ -94,10 +93,10 @@ console.error('Error: ', error);
 }
 
 /** If tab is inactive, pop out video player */
-// document.addEventListener("visibilitychange", (event) => {
-//     if (document.visibilityState == "visible") {
-//         document.exitPictureInPicture();
-//     } else {
-//         videoElement.requestPictureInPicture();
-//     };
-//   });
+document.addEventListener("visibilitychange", (event) => {
+    if (document.visibilityState == "visible") {
+        document.exitPictureInPicture();
+    } else {
+        videoElement.requestPictureInPicture();
+    };
+  });
